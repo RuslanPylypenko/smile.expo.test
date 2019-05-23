@@ -71,6 +71,11 @@ class Product extends \yii\db\ActiveRecord
         }
     }
 
+    public function getFeedbacks()
+    {
+        return $this->hasMany(FeedbackProduct::className(), ['product_id' => 'id']);
+    }
+
 
     public function getCatalog()
     {

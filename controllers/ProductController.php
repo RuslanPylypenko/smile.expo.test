@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\FeedbackProduct;
 use app\models\forms\ProductForm;
 use app\models\ProductPhoto;
 use Yii;
@@ -55,8 +56,19 @@ class ProductController extends Controller
      */
     public function actionView($id)
     {
+        $commentModel = new FeedbackProduct();
+
+        if ($commentModel->load(Yii::$app->request->post())) {
+            $commentModel->date = date("Y-m-d H:i:s");
+            $commentModel->product_id = $id;
+            if ($commentModel->save()) {
+                return $this->refresh();
+            }
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'commentModel' => $commentModel,
         ]);
     }
 

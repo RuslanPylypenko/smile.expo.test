@@ -12,9 +12,12 @@ use Yii;
  * @property string $user_email
  * @property string $text
  * @property string $date
+ * @property string $product_id
  */
 class FeedbackProduct extends \yii\db\ActiveRecord
 {
+    const MAX_DESCRIPTION_LENGHT = 1000;
+
     /**
      * {@inheritdoc}
      */
@@ -29,10 +32,12 @@ class FeedbackProduct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_name', 'user_email', 'text', 'date'], 'required'],
-            [['text'], 'string'],
+            [['user_name', 'user_email', 'text', 'date', 'product_id'], 'required'],
+            [['text'], 'string', 'max' => self::MAX_DESCRIPTION_LENGHT],
+            [['product_id'], 'integer'],
             [['date'], 'safe'],
-            [['user_name', 'user_email'], 'string', 'max' => 255],
+            ['user_email', 'email'],
+            [['user_name'], 'string', 'max' => 255],
         ];
     }
 
