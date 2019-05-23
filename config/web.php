@@ -28,6 +28,9 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'storage' => [
+            'class' => 'app\components\Storage',
+        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
