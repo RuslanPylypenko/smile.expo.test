@@ -41,6 +41,25 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
         ],
     ]);
+
+
+    $menuRight = [
+        [
+            'label' => Yii::$app->languageDropdown->getCurrentLanguageItem(),
+            'items' => Yii::$app->languageDropdown->getLanguageItems(),
+            'linkOptions' => ['class' => 'navbar-language-selector'],
+        ],
+
+
+    ];
+
+    echo Nav::widget([
+        'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
+        'items' => $menuRight,
+    ]);
+
+
     NavBar::end();
     ?>
 

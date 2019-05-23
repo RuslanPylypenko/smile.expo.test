@@ -96,6 +96,10 @@ a.desc:after {
     border: none;
 }
 
+.navbar-language-selector + .dropdown-menu{
+    min-width: auto;
+}
+
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;
