@@ -15,7 +15,6 @@ $this->title = 'Smile Expo';
     <div class="body-content">
 
         <div class="row">
-            <?= Yii::t('main', 'привет') ?>
         </div>
 
     </div>
