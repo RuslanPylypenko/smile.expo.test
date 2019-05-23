@@ -38,8 +38,8 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => Yii::t('product', 'Главная'), 'url' => ['/site/index']],
-            ['label' => Yii::t('product', 'Товары'), 'url' => ['/product/index']],
+            ['label' => Yii::t('menu', 'Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('menu', 'Catalog'), 'url' => ['/catalog/index']],
         ],
     ]);
 
