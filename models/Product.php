@@ -81,4 +81,19 @@ class Product extends \yii\db\ActiveRecord
     {
         return Catalog::findOne($this->catalog_id);
     }
+
+
+    public function beforeDelete()
+    {
+
+        foreach ($this->photos as $photo){
+            $photo->delete();
+        }
+
+        foreach ($this->feedbacks as $feedback){
+            $feedback->delete();
+        }
+
+        return parent::beforeDelete();
+    }
 }

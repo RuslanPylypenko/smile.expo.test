@@ -32,4 +32,12 @@ class ProductPhoto extends \yii\db\ActiveRecord
             'src' => Yii::t('main', 'Src'),
         ];
     }
+
+
+    public function beforeDelete()
+    {
+        Yii::$app->storage->deleteFile($this->src);
+
+        return parent::beforeDelete();
+    }
 }
